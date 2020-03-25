@@ -1,6 +1,6 @@
 import React from "react";
 
-// Testing for git push 
+// Testing
 
 const TopButtons = props => {
 	return (
