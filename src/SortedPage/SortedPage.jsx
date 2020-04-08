@@ -1,14 +1,23 @@
 import React from 'react';
 
 const SortedPage = (props) => {
+
+
   return (
     <div>
       {props.list.map((list, index)=>
-        <div key={index}>
-          <h2>Isle: {list.isle}</h2><h2>Item: {list.item}</h2> <hr/>
+        <div>
+          <div className="sortedCard" key={index}>
+            <input type="checkbox" name="" id="sortedCardChecked" className="checkmark"/>
+            <div className="sCardText">
+              <h2>Isle: {list.isle === -1 ? 'This item has no isle yet!' : list.isle === 0 ? "grocery/baking" : list.isle}</h2>
+              <h2>Item: {list.item}</h2>
+            </div>
+          </div>
+          <hr/>
         </div>
       )}
-      <button onClick={props.click}>Add more!</button>
+      <button className="sortButton" onClick={props.click}>Add or delete</button>
     </div>
   );
 }

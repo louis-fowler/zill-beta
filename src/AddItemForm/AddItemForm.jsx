@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const AddItemForm = (props) => {
   const [data, setData] = useState(
-    {item: "apple", type: "bread", isle: -1}
+    {item: "", type: "", isle: -1}
   );
 
   /* Simon example
@@ -19,6 +19,13 @@ const AddItemForm = (props) => {
 
   */
 
+  const sendItemHandler = (e) => {
+    e.preventDefault();
+    const randomNumber = Math.floor(Math.random() * 11) + 0
+    props.getItemHandler({item: data.item, type: data.type, isle: randomNumber});
+    setData({item: "", type: "", isle: -1})
+  }
+
   const addItemHandler = e => {
     const newData = {...data}
     newData.item = e.target.value
@@ -34,8 +41,6 @@ const AddItemForm = (props) => {
   return (
     <div>
       <form action="">
-        {data.item}
-        {data.type}
         <input name="item" type="text" placeholder="Item" value={data.item } onChange={addItemHandler}/>
         <select name="type" id="" value={data.type} onChange={addTypeHandler}>
           <option value="fruit/veg">Fruit and Veg</option>
@@ -43,7 +48,7 @@ const AddItemForm = (props) => {
           <option value="personal hygiene">Personal hygiene</option>
           <option value="?">Dont know</option>
         </select>
-        <button >submit</button>
+        <button onClick={sendItemHandler}>submit</button>
       </form>
     </div>
   );

@@ -11,9 +11,10 @@ class App extends React.Component {
 		super(props);
 		this.state = {
       sortPage: "toSort",
-      list: [{item: "apple", type: "fruit/veg", isle: 0}, {item: "vogels", type: "bread", isle: 10}, {item: "oranges", type: "fruit/veg", isle: 0}, {item: "toothpaste", type: "personal hygiene", isle: -1}, {item: "toilet paper", type: "personal hygiene", isle: -1}],
+      list: [{item: "apple", type: "fruit/veg", isle: 0}, {item: "vogels", type: "bread", isle: 10}, {item: "oranges", type: "fruit/veg", isle: 0}, {item: "toothpaste", type: "personal hygiene", isle: 3}, {item: "toilet paper", type: "personal hygiene", isle: 6}],
 		};
   }
+  
 
   ChangePage = () => { 
     if (this.state.sortPage === "toSort") {
@@ -27,16 +28,12 @@ class App extends React.Component {
     }
   }
 
-  AddItemHandler = (event) => {
-    event.preventDefault();
-    let list = this.state.list;
-    let name = event.target.name;
-    let value = event.target.value;
-
-    list[name] = value;
-
-    this.setState({list})
+  getItemHandler = (childData) => {
+    this.setState(prevState => ({
+      list: [childData, ...prevState.list]
+    }))
   }
+
   
   SortHandler = () => {
     this.setState(prevState => {
@@ -44,12 +41,6 @@ class App extends React.Component {
       (a.isle > b.isle) ? 1 : -1) 
       
       const showHelpText = prevState.list.map(a => a.isle).includes(-1) 
-
-    // this.setState(prevState => ({
-    //   list: prevState.list.map( a =>
-    //     a.isle && a.isle !== "" ? {...a, isle: 'This item has no isle yet!'}: a
-    //   )
-    // }))
 
       return {
         list,
@@ -59,24 +50,28 @@ class App extends React.Component {
     })
   }
 
+  deleteItemHandler = i => {
+    this.setState({
+      list: [...this.state.list.slice(0, i),
+      ...this.state.list.slice(i + 1)]
+    })
+  }
+
 	render() {
 		return (
 			<div className="App">
 				<TopBanner/>
-        <AddItemForm click={data => this.AddItemHandler(data)} list={this.state.list}/>
         {this.state.sortPage === "toSort" ? (
-          <ItemSorter list={this.state.list} click={this.SortHandler}/>
+          <div>
+            <AddItemForm getItemHandler={this.getItemHandler} list={this.state.list}/>
+            <ItemSorter list={this.state.list} click={this.SortHandler} delete={this.deleteItemHandler}/>
+          </div>
         ) : (
           <SortedPage list={this.state.list} click={this.ChangePage}/>
         )}
-        {this.state.list.map(a =>
-          a.isle && a.isle >= 0 ? a.isle : 'This item has no isle yet!'
-          )}
-
-          {this.state.showHelpText && (
-            <HelpUsForm/>
-          )}
-
+        {this.state.showHelpText && (
+          <HelpUsForm/>
+        )}
 			</div> 
 		);
 	}
