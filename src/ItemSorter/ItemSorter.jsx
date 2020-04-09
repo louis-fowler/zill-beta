@@ -4,13 +4,12 @@ const ItemSorter = (props) => {
 
   return (
       <div className="sorterWrapper">
-        {props.list.map((list, index)=>
+        {props.list.map(list=>
           <div className="sorterItem">
-            <p className="sorterText" key={index}>
+            <p key={list.id}>
               Item: {list.item} - Isle: {list.isle === -1 ? 'This item has no isle yet!' : list.isle === 0 ? "grocery/baking" : list.isle}
             </p>
-            <button className="removeButton" onClick={() => props.delete(index)}> remove</button>
-            <hr/>
+            <button className="removeButton" onClick={() => props.delete(list.id)}> remove</button>
           </div>
 
         )}

@@ -11,7 +11,7 @@ class App extends React.Component {
 		super(props);
 		this.state = {
       sortPage: "toSort",
-      list: [{item: "apple", type: "fruit/veg", isle: 0}, {item: "vogels", type: "bread", isle: 10}, {item: "oranges", type: "fruit/veg", isle: 0}, {item: "toothpaste", type: "personal hygiene", isle: 3}, {item: "toilet paper", type: "personal hygiene", isle: 6}],
+      list: [{item: "apple", type: "fruit/veg", isle: 0, id: 123}, {item: "vogels", type: "bread", isle: 10, id:32135}, {item: "oranges", type: "fruit/veg", isle: 0, id: 97472}, {item: "toothpaste", type: "personal hygiene", isle: 3, id: 578926}, {item: "toilet paper", type: "personal hygiene", isle: 6, id: 5732847}],
 		};
   }
   
@@ -29,9 +29,11 @@ class App extends React.Component {
   }
 
   getItemHandler = (childData) => {
-    this.setState(prevState => ({
-      list: [childData, ...prevState.list]
-    }))
+    childData.item === "" ? 
+      alert("No item in input") : 
+      this.setState(prevState => ({
+        list: [childData, ...prevState.list]
+      }))
   }
 
   
@@ -50,11 +52,9 @@ class App extends React.Component {
     })
   }
 
-  deleteItemHandler = i => {
-    this.setState({
-      list: [...this.state.list.slice(0, i),
-      ...this.state.list.slice(i + 1)]
-    })
+  deleteItemHandler = itemId => {
+    const list = this.state.list.filter(i => i.id !== itemId)
+    this.setState({list: list})
   }
 
 	render() {
