@@ -1,3 +1,11 @@
+/* Overall */
+
+html {
+  background-color: #72be70;
+}
+
+/* App.jsx */
+
 .App {
   text-align: center;
 }
@@ -5,6 +13,133 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.TopBanner {
+  padding: 5px;
+  background-color: #61dafb;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  width: 90%;
+  background: #333;
+  background-image: linear-gradient(to right, rgb(103, 238, 98), rgb(0, 26, 2),rgb(103, 238, 98));
+}
+
+/* AddItemForm */
+
+.formWrapper {
+  background-color: #67b164;
+  border-bottom: 1.5px solid black;
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
+
+.formWrapper input {
+  border: 1px solid rgba(0, 0, 0, 0.568);
+  padding: 3px;
+  color: white;
+  background-color: #4CAF50;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.formWrapper input:acitve {
+  border: 1px solid #61dafb;
+}
+
+.formWrapper input::placeholder{
+  color:rgba(255, 255, 255, 0.507);
+}
+
+.formWrapper select {
+  border: 1px solid rgba(0, 0, 0, 0.568);;
+  background-color: #4CAF50;
+  padding: 3px;
+  color: white;
+}
+
+.formWrapper button {
+  border: 1px solid rgba(0, 0, 0, 0.568);;
+  background-color: rgb(50, 119, 52);;
+  padding: 5px;
+  color: white;
+  margin-left: 10px;
+}
+
+.formWrapper button:hover {
+ background-color: #4CAF50;
+}
+
+/* SortedPage */
+
+.sortedCard {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sCardText {
+  background-color: #4da34a79;
+  margin: 7px;
+  padding: 20px;
+  margin-left: 50px;
+  border-radius: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.397);
+  
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  background-color: #204d1e;
+}
+
+#sortedCardChecked:checked ~ .sCardText {
+  color: rgba(0, 0, 0, 0.342);
+}
+
+
+/* ItemSorter */
+
+.sorterItem {
+  width: 50%;
+  margin: auto;
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgb(50, 119, 52);
+}
+
+
+.removeButton {
+  /* margin-bottom: 20px; */
+  border: 1px solid rgba(0, 0, 0, 0.397);
+  background-color: #f44336;;
+  border-radius: 1px;
+}
+
+.removeButton:hover {
+  background-color:#f36156; ;
+}
+
+.sortButton {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 15px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.397);
+  background-color:#4CAF50;;
+  padding: 10px;
+  border-radius: 1px;
+}
+
+.sortButton:hover {
+  background-color: rgb(107, 175, 109);
 }
 
 @media (prefers-reduced-motion: no-preference) {
