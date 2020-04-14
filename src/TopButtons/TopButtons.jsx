@@ -1,7 +1,5 @@
 import React from "react";
 
-// push to branch test
-
 const TopButtons = props => {
 	return (
 		<div>

@@ -1,7 +1,5 @@
 import React from "react";
 
-// Just seeing hoe it looks
-
 const ListInput = props => {
 	return (
 		<div>
