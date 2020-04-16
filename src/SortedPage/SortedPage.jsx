@@ -4,7 +4,9 @@ const SortedPage = (props) => {
   return (
     <div>
       {props.list.map((list) => (
-        <div>
+        <div className="sortedItemContainer">
+          <h3>Check it off!</h3>
+          <input type="checkbox" name="" id="check-sorted" />
           <div className="sortedCard" key={list.id}>
             <div className={!("style" in list) ? "sCardText" : list.style}>
               <h2>
@@ -18,7 +20,6 @@ const SortedPage = (props) => {
               <h2>Item: {list.item}</h2>
             </div>
           </div>
-          <hr />
         </div>
       ))}
       <button className="sortButton" onClick={props.click}>
