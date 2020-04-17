@@ -9,15 +9,15 @@ const SortedPage = (props) => {
           <input type="checkbox" name="" id="check-sorted" />
           <div className="sortedCard" key={list.id}>
             <div className={!("style" in list) ? "sCardText" : list.style}>
-              <h2>
+              <p>
                 Isle:{" "}
                 {list.isle === -1
                   ? "This item has no isle yet!"
                   : list.isle === 0
                   ? "grocery/baking"
                   : list.isle}
-              </h2>
-              <h2>Item: {list.item}</h2>
+              </p>
+              <p>Item: {list.item}</p>
             </div>
           </div>
         </div>
