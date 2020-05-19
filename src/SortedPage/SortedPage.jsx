@@ -1,14 +1,14 @@
 import React from "react";
 
-const SortedPage = (props) => {
+const SortedPage = props => {
   return (
     <div>
-      {props.list.map((list) => (
+      {props.list.map((list, index) => (
         <div className="sortedItemContainer">
-          <h3>Check it off!</h3>
-          <input type="checkbox" name="" id="check-sorted" />
           <div className="sortedCard" key={list.id}>
-            <div className={!("style" in list) ? "sCardText" : list.style}>
+            <div
+              onClick={() => props.toggleCheck(list.check, index)}
+              className={list.check === false ? "sCardText" : "sCardTextCheck"}>
               <p>
                 Isle:{" "}
                 {list.isle === -1

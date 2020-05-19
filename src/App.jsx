@@ -12,11 +12,29 @@ class App extends React.Component {
     this.state = {
       sortPage: "toSort",
       list: [
-        { item: "apple", type: "fruit/veg", isle: 0, id: 123 },
-        { item: "vogels", type: "bread", isle: 10, id: 32135 },
-        { item: "oranges", type: "fruit/veg", isle: 0, id: 97472 },
-        { item: "toothpaste", type: "personal hygiene", isle: 3, id: 578926 },
-        { item: "toilet paper", type: "personal hygiene", isle: 6, id: 847 },
+        { item: "apple", type: "fruit/veg", isle: 0, id: 123, check: true },
+        { item: "vogels", type: "bread", isle: 10, id: 32135, check: false },
+        {
+          item: "oranges",
+          type: "fruit/veg",
+          isle: 0,
+          id: 97472,
+          check: false,
+        },
+        {
+          item: "toothpaste",
+          type: "personal hygiene",
+          isle: 3,
+          id: 578926,
+          check: false,
+        },
+        {
+          item: "toilet paper",
+          type: "personal hygiene",
+          isle: 6,
+          id: 847,
+          check: false,
+        },
       ],
     };
   }
@@ -33,19 +51,19 @@ class App extends React.Component {
     }
   };
 
-  getItemHandler = (childData) => {
+  getItemHandler = childData => {
     childData.item === ""
       ? alert("No item in input")
-      : this.setState((prevState) => ({
+      : this.setState(prevState => ({
           list: [childData, ...prevState.list],
         }));
   };
 
   SortHandler = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       const list = prevState.list.sort((a, b) => (a.isle > b.isle ? 1 : -1));
 
-      const showHelpText = prevState.list.map((a) => a.isle).includes(-1);
+      const showHelpText = prevState.list.map(a => a.isle).includes(-1);
 
       return {
         list,
@@ -55,8 +73,19 @@ class App extends React.Component {
     });
   };
 
-  deleteItemHandler = (itemId) => {
-    const list = this.state.list.filter((i) => i.id !== itemId);
+  toggleCheck = (itemCheck, index) => {
+    let newArray = [...this.state.list];
+    itemCheck === true
+      ? (newArray[index] = { ...newArray[index], check: false })
+      : (newArray[index] = { ...newArray[index], check: true });
+
+    this.setState({
+      list: newArray,
+    });
+  };
+
+  deleteItemHandler = itemId => {
+    const list = this.state.list.filter(i => i.id !== itemId);
     this.setState({ list: list });
   };
 
@@ -70,7 +99,7 @@ class App extends React.Component {
       <div className="App">
         <TopBanner />
         {this.state.sortPage === "toSort" ? (
-          <div>
+          <div onClick={this.testGet}>
             <AddItemForm
               getItemHandler={this.getItemHandler}
               list={this.state.list}
@@ -82,7 +111,11 @@ class App extends React.Component {
             />
           </div>
         ) : (
-          <SortedPage list={this.state.list} click={this.ChangePage} />
+          <SortedPage
+            list={this.state.list}
+            click={this.ChangePage}
+            toggleCheck={this.toggleCheck}
+          />
         )}
         {this.state.showHelpText && <HelpUsForm />}
       </div>

@@ -100,7 +100,7 @@ hr {
   border-bottom: 2px solid rgb(50, 119, 52);
 }
 
-.sortedItemContainer input[type="checkbox"] {
+/* .sortedItemContainer input[type="checkbox"] {
   -webkit-appearance: none;
   padding: 20px;
   background-color: rgb(74, 179, 77);
@@ -112,7 +112,7 @@ hr {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
+} */
 
 .sCardText {
   background-color: #4da34a79;
@@ -124,9 +124,16 @@ hr {
   font-weight: 700;
 }
 
-#check-sorted:checked ~ .sortedCard {
+.sCardTextCheck {
+  background-color: #96a79679;
   color: rgba(0, 0, 0, 0.342);
   text-decoration: line-through;
+  margin: 50px 10px 0 0;
+  padding: 20px;
+  border-radius: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.397);
+  font-size: 1.4em;
+  font-weight: 700;
 }
 
 /* ItemSorter */

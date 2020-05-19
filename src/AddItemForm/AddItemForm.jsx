@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddItemForm = (props) => {
+const AddItemForm = props => {
   const [data, setData] = useState({ item: "", type: "", isle: -1, id: 0 });
 
   /* Simon example
@@ -17,7 +17,7 @@ const AddItemForm = (props) => {
 
   */
 
-  const sendItemHandler = (e) => {
+  const sendItemHandler = e => {
     e.preventDefault();
     const id = Date.now();
     const randomNumber = Math.floor(Math.random() * 11) + 0;
@@ -26,17 +26,18 @@ const AddItemForm = (props) => {
       type: data.type,
       isle: randomNumber,
       id: id,
+      check: false,
     });
     setData({ item: "", type: "", isle: -1, id: 0 });
   };
 
-  const addItemHandler = (e) => {
+  const addItemHandler = e => {
     const newData = { ...data };
     newData.item = e.target.value;
     setData(newData);
   };
 
-  const addTypeHandler = (e) => {
+  const addTypeHandler = e => {
     const newData = { ...data };
     newData.type = e.target.value;
     setData(newData);
@@ -59,8 +60,7 @@ const AddItemForm = (props) => {
               name="type"
               id=""
               value={data.type}
-              onChange={addTypeHandler}
-            >
+              onChange={addTypeHandler}>
               <option value="fruit/veg">Fruit and Veg</option>
               <option value="bread">Bread</option>
               <option value="personal hygiene">Personal hygiene</option>
