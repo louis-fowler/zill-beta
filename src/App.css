@@ -95,26 +95,23 @@ hr {
 .sortedItemContainer {
   display: flex;
   justify-content: center;
-  flex-direction: row-reverse;
   align-items: center;
   border-bottom: 2px solid rgb(50, 119, 52);
 }
 
-/* .sortedItemContainer input[type="checkbox"] {
-  -webkit-appearance: none;
-  padding: 20px;
-  background-color: rgb(74, 179, 77);
-  border: 1px solid rgb(50, 119, 52);
+.sortedCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.sortedItemContainer input[type="checkbox"]:checked {
-  background-image: url("./images/checkmark.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-} */
-
 .sCardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vmax;
+  height: 20vmax;
   background-color: #4da34a79;
   margin: 50px 10px 0 0;
   padding: 20px;
@@ -125,6 +122,12 @@ hr {
 }
 
 .sCardTextCheck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vmax;
+  height: 20vmax;
   background-color: #96a79679;
   color: rgba(0, 0, 0, 0.342);
   text-decoration: line-through;
