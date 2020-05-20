@@ -20,7 +20,7 @@ const AddItemForm = props => {
   const sendItemHandler = e => {
     e.preventDefault();
     const id = Date.now();
-    const randomNumber = Math.floor(Math.random() * 11) + 0;
+    const randomNumber = Math.floor(Math.random() * 9) + 0;
     props.getItemHandler({
       item: data.item,
       type: data.type,

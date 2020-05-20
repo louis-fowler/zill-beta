@@ -12,8 +12,8 @@ class App extends React.Component {
     this.state = {
       sortPage: "toSort",
       list: [
-        { item: "apple", type: "fruit/veg", isle: 0, id: 123, check: true },
-        { item: "vogels", type: "bread", isle: 10, id: 32135, check: false },
+        { item: "apple", type: "fruit/veg", isle: 0, id: 123, check: false },
+        { item: "vogels", type: "bread", isle: 8, id: 32135, check: false },
         {
           item: "oranges",
           type: "fruit/veg",
@@ -73,11 +73,12 @@ class App extends React.Component {
     });
   };
 
-  toggleCheck = (itemCheck, index) => {
+  toggleCheck = (itemCheck, itemId) => {
+    let itemIndex = this.state.list.findIndex(key => key.id === itemId);
     let newArray = [...this.state.list];
     itemCheck === true
-      ? (newArray[index] = { ...newArray[index], check: false })
-      : (newArray[index] = { ...newArray[index], check: true });
+      ? (newArray[itemIndex] = { ...newArray[itemIndex], check: false })
+      : (newArray[itemIndex] = { ...newArray[itemIndex], check: true });
 
     this.setState({
       list: newArray,
@@ -88,11 +89,6 @@ class App extends React.Component {
     const list = this.state.list.filter(i => i.id !== itemId);
     this.setState({ list: list });
   };
-
-  // checkItemHandler = (itemId) => {
-  //   const item = this.state.list.filter((i) => i.id === itemId);
-  //   const spreadItem = [...item];
-  // };
 
   render() {
     return (
