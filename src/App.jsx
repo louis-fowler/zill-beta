@@ -58,8 +58,8 @@ class App extends React.Component {
   };
 
   getItemHandler = childData => {
-    childData.item === ""
-      ? alert("No item in input")
+    childData.item === "" || childData.type === ""
+      ? alert("Please add item and/or select item type")
       : this.setState(prevState => ({
           list: [childData, ...prevState.list],
         }));

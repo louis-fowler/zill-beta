@@ -73,12 +73,13 @@ const AddItemForm = props => {
               id=""
               value={data.type}
               onChange={addTypeHandler}>
-              <option value="?" selected="selected">
-                Dont know
+              <option value="" selected disabled>
+                Item Type
               </option>
               <option value="fruit/veg">Fruit and Veg</option>
               <option value="bread">Bread</option>
               <option value="personal hygiene">Personal hygiene</option>
+              <option value="?">Dont know</option>
             </select>
             <button onClick={sendItemHandler}>Add</button>
           </form>
