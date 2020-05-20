@@ -17,14 +17,26 @@ const AddItemForm = props => {
 
   */
 
+  const setIsle = () => {
+    if (data.type === "fruit/veg") {
+      return 0;
+    } else if (data.type === "bread") {
+      return 1;
+    } else if (data.type === "personal hygiene") {
+      return 6;
+    } else {
+      return 2;
+    }
+  };
+
   const sendItemHandler = e => {
     e.preventDefault();
     const id = Date.now();
-    const randomNumber = Math.floor(Math.random() * 9) + 0;
+    // const randomNumber = Math.floor(Math.random() * 9) + 0;
     props.getItemHandler({
       item: data.item,
       type: data.type,
-      isle: randomNumber,
+      isle: setIsle(),
       id: id,
       check: false,
     });
@@ -61,10 +73,12 @@ const AddItemForm = props => {
               id=""
               value={data.type}
               onChange={addTypeHandler}>
+              <option value="?" selected="selected">
+                Dont know
+              </option>
               <option value="fruit/veg">Fruit and Veg</option>
               <option value="bread">Bread</option>
               <option value="personal hygiene">Personal hygiene</option>
-              <option value="?">Dont know</option>
             </select>
             <button onClick={sendItemHandler}>Add</button>
           </form>

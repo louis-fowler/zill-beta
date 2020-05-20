@@ -44,9 +44,15 @@ class App extends React.Component {
       this.setState({
         sortPage: "sorted",
       });
+      window.scrollTo({
+        top: 6000,
+      });
     } else {
       this.setState({
         sortPage: "toSort",
+      });
+      window.scrollTo({
+        top: 0,
       });
     }
   };
@@ -60,6 +66,9 @@ class App extends React.Component {
   };
 
   SortHandler = () => {
+    window.scrollTo({
+      top: 0,
+    });
     this.setState(prevState => {
       const list = prevState.list.sort((a, b) => (a.isle > b.isle ? 1 : -1));
 

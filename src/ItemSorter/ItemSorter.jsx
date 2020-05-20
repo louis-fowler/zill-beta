@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const ItemSorter = props => {
   return (
@@ -24,6 +25,7 @@ const ItemSorter = props => {
       <button className="sortButton" onClick={props.click}>
         Click to sort
       </button>
+      <ScrollToTop />
     </div>
   );
 };

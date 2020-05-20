@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCard from "./ItemCard/ItemCard";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const SortedPage = props => {
   let grocArray = props.list.filter(i => i.isle === 0);
@@ -28,11 +29,7 @@ const SortedPage = props => {
       {grocArray.length !== 0 ? (
         <div>
           <h3>Grocery and Baking Isle</h3>
-          <ItemCard
-            array={grocArray}
-            toggleCheck={props.toggleCheck}
-            onClick={itemsLeft}
-          />
+          <ItemCard array={grocArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {oneArray.length !== 0 ? (
@@ -89,6 +86,7 @@ const SortedPage = props => {
       <button className="sortButton" onClick={props.click}>
         Add or delete
       </button>
+      <ScrollToTop />
     </div>
   );
 };
