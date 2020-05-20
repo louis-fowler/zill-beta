@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       sortPage: "toSort",
       list: [
-        { item: "apple", type: "fruit/veg", isle: 0, id: 123, check: false },
+        { item: "apple", type: "fruit/veg", isle: 0, id: 123, check: true },
         { item: "vogels", type: "bread", isle: 8, id: 32135, check: false },
         {
           item: "oranges",

@@ -14,8 +14,7 @@ const SortedPage = props => {
   let eightArray = props.list.filter(i => i.isle === 8);
 
   const itemsLeft = () => {
-    let itemLeftArray = props.list.filter(key => key.check === false);
-    // console.log(itemLeftArray.length);
+    let itemLeftArray = props.list.filter(obj => obj.check === false);
     return itemLeftArray.length === 0
       ? "No items left! well done."
       : itemLeftArray.length === 1

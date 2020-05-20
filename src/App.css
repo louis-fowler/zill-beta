@@ -8,6 +8,11 @@ body {
   font-size: 2em;
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 /* App.jsx */
 
 .App {
@@ -141,8 +146,13 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   border-bottom: 1px solid rgb(50, 119, 52);
+}
+
+.checkMarkContainer {
+  height: 5%;
+  width: 5%;
 }
 
 .removeButton {
