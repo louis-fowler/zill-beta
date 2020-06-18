@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
 function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
-    });
-  };
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <div>
@@ -14,7 +14,7 @@ function ScrollToTop() {
         to top
       </button>
     </div>
-  );
+  )
 }
 
-export default ScrollToTop;
+export default ScrollToTop

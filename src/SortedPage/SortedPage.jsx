@@ -1,26 +1,27 @@
-import React from "react";
-import ItemCard from "./ItemCard/ItemCard";
-import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import React from 'react'
+import ItemCard from './ItemCard/ItemCard'
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import { Link } from 'react-router-dom'
 
 const SortedPage = props => {
-  let grocArray = props.list.filter(i => i.isle === 0);
-  let oneArray = props.list.filter(i => i.isle === 1);
-  let twoArray = props.list.filter(i => i.isle === 2);
-  let threeArray = props.list.filter(i => i.isle === 3);
-  let fourArray = props.list.filter(i => i.isle === 4);
-  let fiveArray = props.list.filter(i => i.isle === 5);
-  let sixArray = props.list.filter(i => i.isle === 6);
-  let sevenArray = props.list.filter(i => i.isle === 7);
-  let eightArray = props.list.filter(i => i.isle === 8);
+  let grocArray = props.list.filter(i => i.isle === 0)
+  let oneArray = props.list.filter(i => i.isle === 1)
+  let twoArray = props.list.filter(i => i.isle === 2)
+  let threeArray = props.list.filter(i => i.isle === 3)
+  let fourArray = props.list.filter(i => i.isle === 4)
+  let fiveArray = props.list.filter(i => i.isle === 5)
+  let sixArray = props.list.filter(i => i.isle === 6)
+  let sevenArray = props.list.filter(i => i.isle === 7)
+  let eightArray = props.list.filter(i => i.isle === 8)
 
   const itemsLeft = () => {
-    let itemLeftArray = props.list.filter(obj => obj.check === false);
+    let itemLeftArray = props.list.filter(obj => obj.check === false)
     return itemLeftArray.length === 0
-      ? "No items left! well done."
+      ? 'No items left! well done.'
       : itemLeftArray.length === 1
-      ? "You have " + itemLeftArray.length + " item left to collect"
-      : "You have " + itemLeftArray.length + " items left to collect";
-  };
+      ? 'You have ' + itemLeftArray.length + ' item left to collect'
+      : 'You have ' + itemLeftArray.length + ' items left to collect'
+  }
 
   return (
     <div>
@@ -72,7 +73,7 @@ const SortedPage = props => {
           <h3>Isle 7</h3>
           <ItemCard array={sevenArray} toggleCheck={props.toggleCheck} />
         </div>
-      ) : null}{" "}
+      ) : null}{' '}
       {eightArray.length !== 0 ? (
         <div>
           <h3>Isle 8</h3>
@@ -82,12 +83,12 @@ const SortedPage = props => {
       <div>
         <h3>{itemsLeft()}</h3>
       </div>
-      <button className="sortButton" onClick={props.click}>
+      <Link onClick={props.scroll} className="sortButton" to="/">
         Add or delete
-      </button>
+      </Link>
       <ScrollToTop />
     </div>
-  );
-};
+  )
+}
 
-export default SortedPage;
+export default SortedPage

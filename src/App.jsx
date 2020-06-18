@@ -60,6 +60,10 @@ class App extends React.Component {
     }
   }
 
+  scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   getItemHandler = childData => {
     childData.item === '' || childData.type === ''
       ? alert('Please add item and/or select item type')
@@ -105,26 +109,40 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TopBanner />
-        {this.state.sortPage === 'toSort' ? (
-          <div onClick={this.testGet}>
-            <AddItemForm
-              getItemHandler={this.getItemHandler}
-              list={this.state.list}
-            />
-            <ItemSorter
-              list={this.state.list}
-              click={this.SortHandler}
-              delete={this.deleteItemHandler}
-            />
-          </div>
-        ) : (
-          <SortedPage
-            list={this.state.list}
-            click={this.ChangePage}
-            toggleCheck={this.toggleCheck}
-          />
-        )}
+        <Route path="/" component={TopBanner} />
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <div>
+                <AddItemForm
+                  getItemHandler={this.getItemHandler}
+                  list={this.state.list}
+                />
+                <ItemSorter
+                  list={this.state.list}
+                  click={this.SortHandler}
+                  delete={this.deleteItemHandler}
+                  scroll={this.scrollToTop}
+                />
+              </div>
+            )
+          }}
+        />
+        <Route
+          path="/sorted"
+          render={() => {
+            return (
+              <SortedPage
+                list={this.state.list}
+                click={this.ChangePage}
+                toggleCheck={this.toggleCheck}
+                scroll={this.scrollToTop}
+              />
+            )
+          }}
+        />
         {this.state.showHelpText && <HelpUsForm />}
       </div>
     )

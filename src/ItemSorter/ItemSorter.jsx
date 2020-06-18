@@ -1,6 +1,8 @@
-import React from "react";
-import ScrollToTop from "../ScrollToTop/ScrollToTop";
-import checkMark from "../images/checkmark.png";
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import checkMark from '../images/checkmark.png'
 
 const ItemSorter = props => {
   return (
@@ -8,11 +10,11 @@ const ItemSorter = props => {
       {props.list.map(list => (
         <div className="sorterItem">
           <p key={list.id}>
-            Item: {list.item} - Isle:{" "}
+            Item: {list.item} - Isle:{' '}
             {list.isle === -1
-              ? "This item has no isle yet!"
+              ? 'This item has no isle yet!'
               : list.isle === 0
-              ? "Grocery / Baking"
+              ? 'Grocery / Baking'
               : list.isle}
           </p>
           {list.check === true ? (
@@ -23,17 +25,17 @@ const ItemSorter = props => {
           <button
             className="removeButton"
             onClick={() => props.delete(list.id)}>
-            {" "}
+            {' '}
             remove
           </button>
         </div>
       ))}
-      <button className="sortButton" onClick={props.click}>
+      <Link onClick={props.scroll} className="sortButton" to="/sorted">
         Click to sort
-      </button>
-      <ScrollToTop />
+      </Link>
+      <ScrollToTop className="sortButton" />
     </div>
-  );
-};
+  )
+}
 
-export default ItemSorter;
+export default ItemSorter
