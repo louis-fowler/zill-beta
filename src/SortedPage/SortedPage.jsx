@@ -24,58 +24,58 @@ const SortedPage = props => {
   }
 
   return (
-    <div>
+    <div className="sortedWrapper">
       <h2>Click to check/un-check</h2>
       {grocArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Grocery and Baking Isle</h3>
           <ItemCard array={grocArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {oneArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 1</h3>
           <ItemCard array={oneArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {twoArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 2</h3>
           <ItemCard array={twoArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {threeArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 3</h3>
           <ItemCard array={threeArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {fourArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 4</h3>
           <ItemCard array={fourArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {fiveArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 5</h3>
           <ItemCard array={fiveArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {sixArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 6</h3>
           <ItemCard array={sixArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}
       {sevenArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 7</h3>
           <ItemCard array={sevenArray} toggleCheck={props.toggleCheck} />
         </div>
       ) : null}{' '}
       {eightArray.length !== 0 ? (
-        <div>
+        <div className="sCardContainer">
           <h3>Isle 8</h3>
           <ItemCard array={eightArray} toggleCheck={props.toggleCheck} />
         </div>

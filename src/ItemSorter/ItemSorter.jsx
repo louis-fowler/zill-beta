@@ -19,7 +19,10 @@ const ItemSorter = props => {
           </p>
           {list.check === true ? (
             <div className="checkMarkContainer">
-              <img src={checkMark} alt="Check mark" />
+              <img
+                src={process.env.PUBLIC_URL + '/check.svg'}
+                alt="Check mark"
+              />
             </div>
           ) : null}
           <button
