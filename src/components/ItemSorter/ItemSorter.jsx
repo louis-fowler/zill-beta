@@ -2,14 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
-import checkMark from '../images/checkmark.png'
 
 const ItemSorter = props => {
   return (
     <div className="sorterWrapper">
       {props.list.map(list => (
-        <div className="sorterItem">
-          <p key={list.id}>
+        <div key={list.id} className="sorterItem">
+          <p>
             Item: {list.item} - Isle:{' '}
             {list.isle === -1
               ? 'This item has no isle yet!'
@@ -20,7 +19,7 @@ const ItemSorter = props => {
           {list.check === true ? (
             <div className="checkMarkContainer">
               <img
-                src={process.env.PUBLIC_URL + '/check.svg'}
+                src={process.env.PUBLIC_URL + 'images/check.svg'}
                 alt="Check mark"
               />
             </div>

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import './App.css'
+import '../../index.css'
 
-import TopBanner from './TopBanner/TopBanner'
-import ItemSorter from './ItemSorter/ItemSorter'
-import HelpUsForm from './HelpUsForm/HelpUsForm'
-import SortedPage from './SortedPage/SortedPage'
-import AddItemForm from './AddItemForm/AddItemForm'
+// import SignIn from './SignIn/SignIn'
+import TopBanner from '../TopBanner/TopBanner'
+import ItemSorter from '../ItemSorter/ItemSorter'
+import HelpUsForm from '../HelpUsForm/HelpUsForm'
+import SortedPage from '../SortedPage/SortedPage'
+import AddItemForm from '../AddItemForm/AddItemForm'
 
 class App extends React.Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class App extends React.Component {
         }))
   }
 
+  // Now defunct
   SortHandler = () => {
     window.scrollTo({
       top: 0,
@@ -109,10 +111,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={TopBanner} />
+        {/* <Route path="/" component={SignIn} /> */}
+        <Route path="/home" component={TopBanner} />
         <Route
           exact
-          path="/"
+          path="/home"
           render={() => {
             return (
               <div>
@@ -136,7 +139,6 @@ class App extends React.Component {
             return (
               <SortedPage
                 list={this.state.list}
-                click={this.ChangePage}
                 toggleCheck={this.toggleCheck}
                 scroll={this.scrollToTop}
               />
