@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 import '../../index.css'
 
-// import SignIn from './SignIn/SignIn'
+import SignIn from '../SignInPage/SignInPage'
 import TopBanner from '../TopBanner/TopBanner'
 import ItemSorter from '../ItemSorter/ItemSorter'
 import HelpUsForm from '../HelpUsForm/HelpUsForm'
@@ -111,7 +111,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Route path="/" component={SignIn} /> */}
+        <Route path="/" component={SignIn} />
         <Route path="/home" component={TopBanner} />
         <Route
           exact
