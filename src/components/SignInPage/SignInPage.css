@@ -1,8 +1,13 @@
 input {
   padding: 10px;
   margin-top: 0px;
-  border-radius: 5px;
+  border-radius: 1px;
   border: 2px solid rgb(177, 177, 177);
+}
+
+button {
+  margin-top: 20px;
+  padding: 5px;
 }
 
 .signInContainer {
@@ -22,26 +27,30 @@ input {
 }
 
 .normal {
-  padding: 5px;
+  padding: 7px;
+  background-color: rgba(197, 197, 197, 0.096);
+  border-radius: 1px;
+  box-shadow: 0 0.3px 4.4px rgba(0, 0, 0, 0.09), 0 2px 35px rgba(0, 0, 0, 0.18);
 }
 
 .selected {
-  padding: 5px;
+  padding: 7px;
   background-color: rgba(255, 0, 0, 0.822);
-  border-radius: 5px;
-  box-shadow: 0 4.5px 3.6px rgba(0, 0, 0, 0.063),
-    0 12.5px 10px rgba(0, 0, 0, 0.09), 0 30.1px 24.1px rgba(0, 0, 0, 0.117),
-    0 100px 80px rgba(0, 0, 0, 0.18);
+  border-radius: 1px;
+  box-shadow: 0 0.1px 2.7px rgba(0, 0, 0, 0.056),
+    0 0.2px 6.9px rgba(0, 0, 0, 0.08), 0 0.4px 14.2px rgba(0, 0, 0, 0.1),
+    0 0.7px 29.2px rgba(0, 0, 0, 0.124), 0 2px 80px rgba(0, 0, 0, 0.18);
 }
 
 .signInForm {
+  width: 50vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgba(0, 0, 255, 0.472);
   margin-top: 15px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 1px;
   box-shadow: 0 4.5px 3.6px rgba(0, 0, 0, 0.063),
     0 12.5px 10px rgba(0, 0, 0, 0.09), 0 30.1px 24.1px rgba(0, 0, 0, 0.117),
     0 100px 80px rgba(0, 0, 0, 0.18);

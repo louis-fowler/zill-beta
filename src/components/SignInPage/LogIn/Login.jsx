@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Login() {
   const [user, setUser] = useState( { userName: '', password: '' })
@@ -26,6 +27,9 @@ function Login() {
         />
       </div>
     </div>
+    <Link className="sortButton" to="/home">
+        Send it
+     </Link>
   </div>)
 }
 

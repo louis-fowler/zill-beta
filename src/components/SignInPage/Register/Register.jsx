@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-function Register() {
+function Register(props) {
   const [newUser, setNewUser] = useState({
     userName: '',
     email: '',
@@ -62,7 +63,11 @@ function Register() {
           />
         </div>
       </div>
+      <Link className="sortButton" to="/home">
+        Send it
+      </Link>
     </div>
+    
   )
 }
 
