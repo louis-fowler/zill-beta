@@ -13,6 +13,8 @@ function Register() {
     addUser[name] = value
     setNewUser(addUser)
   }
+  
+  
 
   return (
     <div>

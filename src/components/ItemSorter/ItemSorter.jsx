@@ -16,7 +16,7 @@ const ItemSorter = props => {
               ? 'Grocery / Baking'
               : list.isle}
           </p>
-          {list.check === true ? (
+          {list.check ? (
             <div className="checkMarkContainer">
               <img
                 src={process.env.PUBLIC_URL + 'images/check.svg'}

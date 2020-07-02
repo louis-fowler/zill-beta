@@ -111,7 +111,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={SignIn} />
+        <Route exact path="/" component={SignIn} />
         <Route path="/home" component={TopBanner} />
         <Route
           exact
