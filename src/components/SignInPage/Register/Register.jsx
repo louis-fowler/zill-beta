@@ -17,34 +17,51 @@ function Register() {
   
 
   return (
-    <div>
-      <p>
+    <div className="signInForm">
+      <div className="formBlock">
         Username:{' '}
-        <input
-          type="text"
-          placeholder="Username"
-          name="userName"
-          onChange={handleInput}
-        />
-      </p>
-      <p>
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            name="userName"
+            onChange={handleInput}
+          />
+        </div>
+      </div>
+      <div className="formBlock">
         Email:{' '}
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          onChange={handleInput}
-        />
-      </p>
-      <p>
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            name="userName"
+            onChange={handleInput}
+          />
+        </div>
+      </div>
+      <div className="formBlock">
         Password (dontUse):{' '}
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={handleInput}
-        />
-      </p>
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            name="userName"
+            onChange={handleInput}
+          />
+        </div>
+      </div>
+      <div className="formBlock">
+        Password again(dontUse):{' '}
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            name="userName"
+            onChange={handleInput}
+          />
+        </div>
+      </div>
     </div>
   )
 }
