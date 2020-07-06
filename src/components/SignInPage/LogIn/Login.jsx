@@ -13,9 +13,10 @@ function Login() {
     )
   }
  
-  // const checkUser = () => {
-  //   getUsers.then()
-  // }
+  const checkUser = () => {
+    getUsers(user)
+  }
+  checkUser()
   
 
   return (

@@ -2,9 +2,11 @@ import request from 'superagent'
 
 // import DB
 
-const getUsers = () => {
+const getUsers = (user) => {
+  const {userName, email} = user
   return request 
-    .get('http://localhost:3000/api/users/')
+    .get(`/api/users`)
+    .query({user})
 }
 
 export {getUsers} 
