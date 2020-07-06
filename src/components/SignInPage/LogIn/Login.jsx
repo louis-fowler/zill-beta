@@ -13,9 +13,9 @@ function Login() {
     )
   }
  
-  const checkUser = () => {
-    getUsers.then()
-  }
+  // const checkUser = () => {
+  //   getUsers.then()
+  // }
   
 
   return (
@@ -42,7 +42,7 @@ function Login() {
         />
       </div>
     </div>
-    <Link onClick={getUsers} className="sortButton" to="/home">
+    <Link className="sortButton" to="/home">
         Send it
      </Link>
   </div>)
