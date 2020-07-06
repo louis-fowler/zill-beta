@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import '../../index.css'
 
@@ -119,40 +119,44 @@ class App extends React.Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => (<SignIn snagId={this.snagId}/>)} />
-        <Route path="/home" component={TopBanner} />
-        <Route
-          exact
-          path="/home"
-          render={() => {
-            return (
-              <div>
-                <AddItemForm
-                  getItemHandler={this.getItemHandler}
+        {this.state.userId ? 
+        <>
+          <Route path="/home" component={TopBanner} />
+          <Route
+            exact
+            path="/home"
+            render={() => {
+              return (
+                <div>
+                  <AddItemForm
+                    getItemHandler={this.getItemHandler}
+                    list={this.state.list}
+                  />
+                  <ItemSorter
+                    list={this.state.list}
+                    click={this.SortHandler}
+                    delete={this.deleteItemHandler}
+                    scroll={this.scrollToTop}
+                  />
+                </div>
+              )
+            }}
+          />
+          <Route
+            path="/sorted"
+            render={() => {
+              return (
+                <SortedPage
                   list={this.state.list}
-                />
-                <ItemSorter
-                  list={this.state.list}
-                  click={this.SortHandler}
-                  delete={this.deleteItemHandler}
+                  toggleCheck={this.toggleCheck}
                   scroll={this.scrollToTop}
                 />
-              </div>
-            )
-          }}
-        />
-        <Route
-          path="/sorted"
-          render={() => {
-            return (
-              <SortedPage
-                list={this.state.list}
-                toggleCheck={this.toggleCheck}
-                scroll={this.scrollToTop}
-              />
-            )
-          }}
-        />
-        {this.state.showHelpText && <HelpUsForm />}
+              )
+            }}
+          />
+        </> :
+        <Redirect to='/' />
+      }
       </div>
     )
   }
