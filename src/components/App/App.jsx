@@ -14,6 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      userId: null,
       sortPage: 'toSort',
       list: [
         { item: 'apple', type: 'fruit/veg', isle: 0, id: 123, check: true },
@@ -41,6 +42,12 @@ class App extends React.Component {
         },
       ],
     }
+  }
+
+  snagId = (id) => {
+    this.setState({
+      userId: id
+    })
   }
 
   ChangePage = () => {
@@ -111,7 +118,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={SignIn} />
+        <Route exact path="/" render={() => (<SignIn snagId={this.snagId}/>)} />
         <Route path="/home" component={TopBanner} />
         <Route
           exact

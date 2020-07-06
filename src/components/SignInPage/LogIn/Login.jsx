@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { getUsers } from '../../../api'
 
-function Login() {
+function Login(props) {
   const [user, setUser] = useState( { userName: '', email: '' })
+  const [auth, setAuth] = useState(false)
 
   const changeHandler = (e) => {
     const {value, name} = e.target
@@ -15,8 +16,16 @@ function Login() {
  
   const checkUser = () => {
     getUsers(user)
+      .then(res => {
+        if (res.text !== 'false') {
+          setAuth(true)
+          props.snagId(res.body[0].id)
+        } else {
+          alert('Not a user, please sign up')
+        }
+      })
   }
-  checkUser()
+
   
 
   return (
@@ -43,9 +52,11 @@ function Login() {
         />
       </div>
     </div>
-    <Link className="sortButton" to="/home">
+    <button className="sortButton" onClick={checkUser}>send it</button>
+    {auth && <Redirect  to='/home' />}
+    {/* <Link onClick={checkUser}  to="/home">
         Send it
-     </Link>
+     </Link> */}
   </div>)
 }
 

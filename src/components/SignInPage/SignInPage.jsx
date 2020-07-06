@@ -5,7 +5,7 @@ import Register from './Register/Register'
 
 import './SignInPage.css'
 
-function SignInPage() {
+function SignInPage(props) {
   const [visibility, setVisibility] = useState({
     page: '',
     register: 'normal',
@@ -32,7 +32,7 @@ function SignInPage() {
       {visibility.page === 'register' ? 
       <Register /> 
       : visibility.page === 'signIn' ? 
-      <Login />
+      <Login snagId={props.snagId}/>
       : null}
     </div>
   )
